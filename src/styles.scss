@@ -8,7 +8,7 @@
     margin:14px!important;
 }
 .pagination li{
-  padding: 2px;
+  padding: 4px;
 }
 .pagination li a{
      color:#000;
@@ -22,8 +22,8 @@
     cursor:pointer;
 }
 .pagination li.active a{
-  background-color: #d8dee4!important;
-  color:#000!important;
+  background-color: #0091e5!important;
+  color:#FF6347!important;
 }
 .disabled{
    pointer-events: none;
