@@ -1,0 +1,72 @@
+<div id="wrapper">
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="blog-top clearfix">
+                            <h4 class="pull-left">Recent News <a href="javascript:void(0)"><i class="fa fa-rss"></i></a>
+                            </h4>
+                        </div><!-- end blog-top -->
+                        <div class="blog-list clearfix" *ngIf="loader">
+                            <div class="lds-roller">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="blog-list clearfix" *ngIf="!loader && newsArray?.length > 0">
+                            <div class="blog-box row mb-5" *ngFor="let news of newsArray">
+                                <div class="col-md-4">
+                                    <div class="post-media">
+                                        <a (click)="navigateTo(news.id)" title="">
+                                            <img src="{{news.imageLink}}" alt="" class="img-fluid">
+                                            <div class="hovereffect"></div>
+                                        </a>
+                                    </div><!-- end media -->
+                                </div><!-- end col -->
+
+                                <div class="blog-meta big-meta col-md-8">
+                                    <h4><a (click)="navigateTo(news.id)" style="cursor: pointer;"
+                                            title="">{{news.header}}</a></h4>
+                                    <p>{{news.shortDetail}}<small class="firstsmall"><a class="bg-orange ml-2"
+                                                (click)="navigateTo(news.id)" style="cursor: pointer;" title="">Read
+                                                More...</a></small></p>
+                                    <!-- <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small> -->
+                                    <small><a href="javascript:void(0)" title="">{{news.time}}</a></small>
+                                    <small><a href="javascript:void(0)" title="">by {{news.source}}</a></small>
+                                    <small><a href="javascript:void(0)" title=""><i class="fa fa-eye"></i>
+                                            {{news.views}}</a></small>
+                                </div><!-- end meta -->
+                                <hr class="invis">
+                            </div><!-- end blog-box -->
+                        </div><!-- end blog-list -->
+                        <div class="blog-list clearfix" *ngIf="!loader && newsArray?.length == 0">
+                            <div class="blog-box row text-center">No News Fetched...</div>
+                            <hr class="invis">
+                        </div>
+                    </div><!-- end page-wrapper -->
+
+                    <div *ngIf="totalLength > 0">
+                        <ul class="pagination">
+                            <li [ngClass]="{disabled:pageDetails.page_no === 1}">
+                                <a (click)="getIndexDetails(pageDetails.page_no-1)">&laquo;</a>
+                            </li>
+                            <li *ngFor="let page of pages" [ngClass]="{active:page. isCurrent}">
+                                <a (click)="getIndexDetails(page.page_value)">{{page.page_name}}</a>
+                            </li>
+                            <li [ngClass]="{disabled:pageDetails.page_no === lastPage}">
+                                <a (click)="getIndexDetails(pageDetails.page_no+1)">&raquo;</a>
+                            </li>
+                        </ul>
+                    </div><!-- end row -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+</div>
