@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../services/news.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Response } from "@angular/http";
 
 @Component({
@@ -20,16 +20,21 @@ export class NewsDashboardComponent implements OnInit {
     totalcount: null
   }
 
-  constructor(public newsService: NewsService,public router: Router) { }
+  constructor(public newsService: NewsService,public router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.newsService.getNewsData(this.newsService.currentPage).subscribe(data=>{
-      let resp = data.json()
-      this.newsArray = resp.data;
-      this.totalLength = resp.count;
-      this.loader = false
-      this.setpagination(this.totalLength,this.newsService.currentPage)
-    })  
+    this.route.params.subscribe((params:Params)=>{
+      if(params.pageNo){
+        this.newsService.currentPage = params.pageNo
+      }
+      this.newsService.getNewsData(this.newsService.currentPage).subscribe(data=>{
+        let resp = data.json()
+        this.newsArray = resp.data;
+        this.totalLength = resp.count;
+        this.loader = false
+        this.setpagination(this.totalLength,this.newsService.currentPage)
+      })  
+    })
   }
   navigateTo(id){
     this.router.navigate([`/detail/${id}`])

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
 import { NewsService } from '../services/news.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class NewsDetailsComponent implements OnInit {
   news:any;
   loader = true;
 
-  constructor(public route: ActivatedRoute, public newsService: NewsService) { }
+  constructor(public route: ActivatedRoute, public newsService: NewsService, public router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe((param: Params)=>{
@@ -21,6 +21,10 @@ export class NewsDetailsComponent implements OnInit {
         this.loader = false;
       })
     })
+  }
+
+  navigateTo(){
+    this.router.navigate([`/home/${this.newsService.currentPage}`])
   }
 
 }

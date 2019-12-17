@@ -5,7 +5,9 @@ import { NewsDetailsComponent } from './news-details/news-details.component';
 
 
 const routes: Routes = [
-  {path: '', component: NewsDashboardComponent},
+  {path: "", pathMatch: "full", redirectTo: "home"},
+  {path: 'home', component: NewsDashboardComponent},
+  {path: 'home/:pageNo', component: NewsDashboardComponent},
   {path: 'detail/:id', component: NewsDetailsComponent},
 ];
 
