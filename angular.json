@@ -28,17 +28,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
               "src/assets/bootstrap.css",
               "src/assets/style.css",
               "src/assets/tech.css",
               "src/assets/colors.css",
               "src/assets/responsive.css",
+              "src/styles.scss",
               "./node_modules/font-awesome/css/font-awesome.css",
               "./node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "src/assets/custom.js",
               "./node_modules/jquery/dist/jquery.js",
               "./node_modules/bootstrap/dist/js/bootstrap.js"
             ]
