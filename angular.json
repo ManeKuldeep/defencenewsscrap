@@ -29,11 +29,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/assets/responsive.css",
               "src/assets/bootstrap.css",
-              "src/assets/colors.css",
-              "src/assets/tech.css",
               "src/assets/style.css",
+              "src/assets/tech.css",
+              "src/assets/colors.css",
+              "src/assets/responsive.css",
               "./node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": [
