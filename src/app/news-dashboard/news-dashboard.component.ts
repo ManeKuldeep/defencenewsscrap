@@ -46,14 +46,12 @@ export class NewsDashboardComponent implements OnInit {
       totalcount = this.totalLength;
       Object.apply(this.pageDetails.totalcount);
     }
-    console.log("totalcount",totalcount);
     
     this.pages = []
     var count = (Math.floor(totalcount % this.pageDetails.noPerPage) == 0 ? (totalcount / this.pageDetails.noPerPage) : (totalcount / this.pageDetails.noPerPage) + 1);
     // var firstPage = (Math.floor((page_no - 1) / 10) * 10) + 1;
     // var lastPage = (Math.floor(count));
     // this.lastPage = lastPage;
-    console.log("count",count);
     
     var firstPage;
     var lastPage
@@ -78,7 +76,6 @@ export class NewsDashboardComponent implements OnInit {
         this.lastPage = lastPage;
       }
     }
-console.log(lastPage,">>>>>>>>>>",firstPage);
 
     var isCurrent = false;
     if (lastPage > firstPage) {
@@ -96,7 +93,6 @@ console.log(lastPage,">>>>>>>>>>",firstPage);
         });
       }
     }
-    console.log("pages",this.pages);
     
   }
 
@@ -109,7 +105,6 @@ console.log(lastPage,">>>>>>>>>>",firstPage);
       this.totalLength = resp.count;
       this.loader = false
     this.pageDetails.totalcount = this.totalLength;
-    //console.log(this.pageDetails.totalcount);
     this.pageDetails.page_no = page_no;
       this.setpagination(this.totalLength,this.newsService.currentPage)
     }) 

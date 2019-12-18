@@ -14,7 +14,7 @@ export class NewsService {
     this.headers.append('Content-Type', 'application/json');
     let option= new RequestOptions({headers:this.headers})
     let body = { page: pageNo }
-    return this.http.post("https://defencenewsscrap.000webhostapp.com/readAllNews.php", body, option)
+    return this.http.post("https://defencenewsscrap.000webhostapp.com/gateway/readAllNews.php", body, option)
   }
 
   getNews(newsId) {
@@ -22,6 +22,6 @@ export class NewsService {
     this.headers.append('Content-Type', 'application/json');
     let option= new RequestOptions({headers:this.headers})
     let body = { id: newsId }
-    return this.http.post("https://defencenewsscrap.000webhostapp.com/readSpecificNews.php", body, option)
+    return this.http.post("https://defencenewsscrap.000webhostapp.com/gateway/readSpecificNews.php", body, option)
   }
 }
