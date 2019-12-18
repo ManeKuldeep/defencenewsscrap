@@ -34,9 +34,9 @@
                                 <div class="blog-meta big-meta col-md-8">
                                     <h4><a (click)="navigateTo(news.id)" style="cursor: pointer;"
                                             title="">{{news.header}}</a></h4>
-                                    {{news.shortDetail}}<small class="firstsmall"><a class="bg-orange ml-2"
-                                                (click)="navigateTo(news.id)" style="cursor: pointer;" title="">Read
-                                                More...</a></small>
+                                    <div [innerHTML]="news.shortDetail"><small class="firstsmall"><a class="bg-orange ml-2"
+                                        (click)="navigateTo(news.id)" style="cursor: pointer;" title="">Read
+                                        More...</a></small></div>
                                     <!-- <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small> -->
                                     <small><a href="javascript:void(0)" title="">{{news.dateTime}}</a></small>
                                     <small>by <a href="{{news.link}}" title="">{{news.source}}</a></small>
