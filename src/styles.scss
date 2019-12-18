@@ -1,8 +1,15 @@
 
 @font-face {
-  font-family: lato;
-  src: url(assets/fonts/fontawesome-webfont.otf) format("opentype");
+  font-family: custom;
+  src: url(assets/fonts/fontawesome-webfont.woff2) format('woff2'),
+       url(assets/fonts/fontawesome-webfont.woff) format('woff'),
+       url(assets/fonts/fontawesome-webfont.ttf) format('ttf');
 }
+
+html {
+  font-family: custom !important;
+}
+
   .pagination{
     float: right;
     text-align: right;
