@@ -11,19 +11,19 @@
 /* RESPONSIVE 
 **************************************/
 
-@media (max-width: 1156px) {
+@media screen and (max-width: 1156px) {
     .small-box .shadow-desc h4 {
         font-size: 14px;
     }
 }
 
-@media (max-width: 1047px) {
+@media screen and (max-width: 1047px) {
     .topbar-section .list-inline-item {
         padding: 0 0.2rem !important;
     }
 }
 
-@media (max-width: 989px) {
+@media screen and (max-width: 989px) {
     .search-form .btn:hover,
     .search-form .btn:focus,
     .search-form .btn {
@@ -45,7 +45,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .post-sharing .btn {
         padding: 0.6rem !important;
     }
@@ -69,7 +69,7 @@
     }
 }
 
-@media (max-width: 728px) {
+@media screen and (max-width: 728px) {
     .center-side,
     .left-side,
     .right-side {
@@ -86,7 +86,7 @@
     }
 }
 
-@media (max-width: 590px) {
+@media screen and (max-width: 590px) {
     .comment-list .media {
         float: none !important;
         width: 100%;
@@ -132,7 +132,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media screen and (min-width: 992px) {
     .header .dropdown-menu {
         margin-top: 13px;
     }
