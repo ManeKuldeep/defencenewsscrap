@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <br />
+    <br />
+    <br />
+    <!-- <form
+      class="myForm"
+      method="get"
+      enctype="application/x-www-form-urlencoded"
+      action="/html/codes/html_form_handler.cfm"
+    >
+      <table>
+        <tr>
+          <td>
+            <label>News Title: </label>
+          </td>
+          <td>
+            <input
+              type="text"
+              name="news_title"
+              required
+              value="{{ news?.header }}"
+              id="newsTitle"
+              #newsTitle
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>Source: </label>
+          </td>
+          <td>
+            <input type="text" name="source" value="{{ news?.source }}" />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>Original Image link: </label>
+          </td>
+          <td>
+            <input type="text" value="{{ news?.imageLink }}" />
+            <img
+              src="{{ news?.imageLink }}"
+              alt="Original Image"
+              height="60"
+              width="60"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>New Image : </label>
+          </td>
+          <td>
+            <input
+              type="text"
+              value="{{ news?.imageLink }}"
+              id="newImageUrlText"
+              #newImageUrlText
+            />
+            <img
+              src="{{ newImageUrl }}"
+              alt="New Image"
+              name="newImage"
+              height="60"
+              width="60"
+            />
+            <input
+              type="button"
+              (click)="this.loadImage()"
+              value="Load New Image"
+            />
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>Category: </label>
+          </td>
+          <td>
+            <select id="category" name="Category" #category>
+              <option value="" selected="selected">Select One</option>
+              <option value="office">Taxi Office</option>
+              <option value="town_hall">Town Hall</option>
+              <option value="telepathy">We'll Guess!</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label>Detail News </label>
+          </td>
+          <td>
+            <textarea
+              name="newsDetail"
+              maxlength="10000"
+              rows="20"
+              cols="128"
+              <!--
+              ([ngModel])="(myTextarea)"
+              --
+            >
+              >{{ news?.detail }}</textarea
+            >
+          </td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td>
+            <a (click)="navigateToPreview()" class="bg-orange ml-2" title=""
+              >Preview</a
+            >
+            <!-- <button>Preview</button> -->
+    <!-- <button>Submit</button>
+          </td>
+        </tr>
+      </table>
+    </form> -->
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      News Title :
+      <input formControlName="news_title" placeholder="Title" /><br />
+      News Source: <input formControlName="source" placeholder="" /><br />
+      Old Image : <input formControlName="old_Image_Link" placeholder="" />
+      <img
+        src="{{ news?.imageLink }}"
+        alt="New Image"
+        name="newImage"
+        height="60"
+        width="60"
+      />
+      <br />
+      New Image : <input formControlName="new_Image_Link" placeholder="" />
+      <img
+        src="{{ newImageUrl }}"
+        alt="New Image"
+        name="newImage"
+        height="60"
+        width="60"
+      />
+      <br />
+      <input type="button" (click)="loadImage(myForm)" value="Load New Image" />
+      <br />
+      Category :
+      <div class="mb-3">
+        <select
+          class="custom-select"
+          (change)="changeCategory($event)"
+          formControlName="category"
+        >
+          <option value="">Choose your city</option>
+          <!-- <option *ngFor="let city of City" [ngValue]="city">{{ city }}</option> -->
+          <option value="" selected="selected">Select One</option>
+          <option value="office">Taxi Office</option>
+          <option value="town_hall">Town Hall</option>
+          <option value="telepathy">We'll Guess!</option>
+        </select>
+      </div>
+      Detail News :
+      <textarea
+        formControlName="detail"
+        maxlength="10000"
+        rows="20"
+        cols="128"
+      ></textarea>
+      <input
+        type="button"
+        (click)="loadDataAgain()"
+        value="Load Main Data Again"
+      />
+      <button type="submit">Preview</button>
+    </form>
+
+    Add Code below for Image
+    <input
+      type="text"
+      name="country"
+      width="120"
+      value='<img src="" alt="New Image" align="middle" name="newImage" height="480" width="600"/>'
+      readonly
+    />
+  </body>
+</html>

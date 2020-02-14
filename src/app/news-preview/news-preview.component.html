@@ -1,0 +1,90 @@
+<script src="src/js/angular-socialshare.js"></script>
+<div id="wrapper">
+  <section class="section single-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="page-wrapper mb-5">
+            <div class="blog-title-area text-center">
+              <ol class="breadcrumb hidden-xs-down">
+                <li class="breadcrumb-item" style="cursor: pointer;">
+                  <a (click)="navigateTo()">Home</a>
+                </li>
+                <li class="breadcrumb-item active">{{ news?.header }}</li>
+              </ol>
+            </div>
+          </div>
+          <div class="page-wrapper" *ngIf="loader">
+            <div class="lds-roller">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+          <input type="button" (click)="backClick()" value="Back" />
+          <div class="page-wrapper" *ngIf="!loader">
+            <div class="blog-title-area text-center">
+              <!-- <span class="color-orange"><a href="tech-category-01.html" title="">Technology</a></span> -->
+
+              <h3>{{ news?.header }}</h3>
+
+              <div class="blog-meta big-meta">
+                <small
+                  ><a href="javascript:void(0)" title="">{{
+                    news?.dateTime
+                  }}</a></small
+                >
+                <small
+                  >by
+                  <a href="{{ news.link }}" title="">{{
+                    news?.source
+                  }}</a></small
+                >
+                <small
+                  ><a href="javascript:void(0)" title=""
+                    ><i class="fa fa-eye"></i> {{ news?.views }}</a
+                  ></small
+                >
+              </div>
+              <!-- end meta -->
+
+              <!-- <div class="post-sharing">
+                            <ul class="list-inline">
+                                <li><a href="#" class="fb-button btn btn-primary"><i class="fa fa-facebook"></i> <span class="down-mobile">Share on Facebook</span></a></li>
+                                <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i> <span class="down-mobile">Tweet on Twitter</span></a></li>
+                                <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>end post-sharing -->
+            </div>
+            <!-- end title -->
+
+            <div class="single-post-media">
+              <img src="{{ news?.imageLink }}" alt="" class="img-fluid" />
+            </div>
+            <!-- end media -->
+
+            <div class="blog-content">
+              <div class="pp" [innerHTML]="news?.detail"></div>
+              <!-- end pp -->
+            </div>
+            <!-- end content -->
+
+            <hr class="invis1" />
+          </div>
+          <!-- end page-wrapper -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+</div>
+
+<input type="button" (click)="backClick()" value="Edit Again" />
+<input type="button" (click)="saveButtonClick()" value="Save Data" />
