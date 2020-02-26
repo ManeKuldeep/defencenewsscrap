@@ -20,7 +20,7 @@ export class NewsPreviewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.checkTimestampValidChild();
+    // this.checkTimestampValidChild();
     this.loader = false;
     this.news = this.newsService.previewNewsData;
     console.log(this.news.link);
@@ -40,7 +40,18 @@ export class NewsPreviewComponent implements OnInit {
 
       // let resp = data.json();
       console.log(">>>>>>>>>>>>>>>>", resp);
+      let respdata = data.json();
+      if (respdata.status == "true") {
+        alert("Success, News Edit Successful");
+      } else {
+        alert("Failed, News Edit Unsuccessfull");
+      }
+      let id = this.news.id;
+      this.navigateToNewDetail(id);
     });
+  }
+  navigateToNewDetail(id) {
+    this.router.navigate([`/detail/${id}`]);
   }
   checkTimestampValidChild() {
     if (this.newsService.checkIsTimestampValidParent()) {

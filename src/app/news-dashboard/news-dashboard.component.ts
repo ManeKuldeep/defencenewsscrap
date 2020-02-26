@@ -19,6 +19,7 @@ export class NewsDashboardComponent implements OnInit {
   loader = true;
   lastPage: any;
   pages;
+  isLogin = false;
   pageDetails = {
     page_no: 1,
     noPerPage: 10,
@@ -34,7 +35,9 @@ export class NewsDashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.loadLoginFormData();
+    // location.reload();
+    // this.loadLoginFormData();
+    this.checkIfUserLogin();
     this.route.params.subscribe((params: Params) => {
       if (params.pageNo) {
         this.newsService.currentPage = params.pageNo;
@@ -49,6 +52,15 @@ export class NewsDashboardComponent implements OnInit {
           this.setpagination(this.totalLength, this.newsService.currentPage);
         });
     });
+  }
+
+  checkIfUserLogin() {
+    let loginStatus = localStorage.getItem("LoginStatus");
+    if (loginStatus == "true") {
+      this.isLogin = true;
+    } else {
+      this.isLogin = false;
+    }
   }
 
   openModal() {
@@ -173,5 +185,8 @@ export class NewsDashboardComponent implements OnInit {
         this.pageDetails.page_no = page_no;
         this.setpagination(this.totalLength, this.newsService.currentPage);
       });
+  }
+  navigateToEdit(id) {
+    this.router.navigate([`/edit/${id}`]);
   }
 }

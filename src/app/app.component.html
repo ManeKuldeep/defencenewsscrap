@@ -5,5 +5,57 @@
 
 <!-- routes will be rendered here -->
 <router-outlet></router-outlet>
+<div class="backdrop" [ngStyle]="{ display: display }"></div>
 
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ display: display }">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="closeModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="myForm" (ngSubmit)="onLogin(myForm)">
+        <div class="modal-body" style="height: 200;">
+          <div class="form-label-group">
+            <label for="inputEmail">Email address</label>
+            <input
+              formControlName="inputUsername"
+              class="form-control"
+              placeholder="Username"
+              required
+              autofocus
+            />
+          </div>
+
+          <div class="form-label-group">
+            <label for="inputPassword">Password</label>
+            <input
+              type="password"
+              formControlName="inputPassword"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default">
+            Login
+          </button>
+        </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
 <!-- footer -->

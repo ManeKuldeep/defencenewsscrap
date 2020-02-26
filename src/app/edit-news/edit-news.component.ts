@@ -28,7 +28,7 @@ export class EditNewsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.checkTimestampValidChild();
+    // this.checkTimestampValidChild();
     if (this.newsService.previewBackClick) {
       this.newsService.previewBackClick = false;
       this.news = this.newsService.previewNewsData;

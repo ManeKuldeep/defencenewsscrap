@@ -1,68 +1,18 @@
 <!-- Header code -->
-<div class="header">
+<!-- <div class="header">
   <a href="#default" class="logo">CompanyLogo</a>
   <div class="header-right">
     <button type="button" class="btn btn-info btn-lg" (click)="openModal()">
       Login
     </button>
   </div>
-</div>
+</div> -->
 <!-- Header Code ends here -->
 
+<!-- <app-header></app-header> -->
+
 <!-- Modal Code here -->
-<div class="backdrop" [ngStyle]="{ display: display }"></div>
 
-<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{ display: display }">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Login</h4>
-
-        <button
-          type="button"
-          class="close"
-          aria-label="Close"
-          (click)="closeModal()"
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form [formGroup]="myForm" (ngSubmit)="onLogin(myForm)">
-        <div class="modal-body" style="height: 200;">
-          <div class="form-label-group">
-            <label for="inputEmail">Email address</label>
-            <input
-              formControlName="inputUsername"
-              class="form-control"
-              placeholder="Username"
-              required
-              autofocus
-            />
-          </div>
-
-          <div class="form-label-group">
-            <label for="inputPassword">Password</label>
-            <input
-              type="password"
-              formControlName="inputPassword"
-              class="form-control"
-              placeholder="Password"
-              required
-            />
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-default">
-            Login
-          </button>
-        </div>
-      </form>
-    </div>
-    <!-- /.modal-content -->
-  </div>
-  <!-- /.modal-dialog -->
-</div>
 <!-- /.modal !-->
 <!-- Modal code ends here -->
 
@@ -129,6 +79,14 @@
                       style="cursor: pointer;"
                       title=""
                       >Read More...</a
+                    >
+
+                    <a
+                      *ngIf="isLogin"
+                      (click)="navigateToEdit(news.id)"
+                      class="bg-orange ml-2"
+                      title=""
+                      >Edit</a
                     >
                   </small>
                   <!-- <small class="firstsmall"><a class="bg-orange" href="tech-category-01.html" title="">Gadgets</a></small> -->
